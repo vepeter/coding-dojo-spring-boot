@@ -7,13 +7,14 @@ import javax.persistence.*;
 public class WeatherEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String city;
 
     private String country;
 
+    @Column(columnDefinition = "NUMERIC(5, 2)")
     private Double temperature;
 
     public Integer getId() {
