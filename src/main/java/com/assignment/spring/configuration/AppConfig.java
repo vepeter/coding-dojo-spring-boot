@@ -1,4 +1,4 @@
-package com.assignment.spring;
+package com.assignment.spring.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

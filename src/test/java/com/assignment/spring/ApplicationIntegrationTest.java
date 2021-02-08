@@ -9,7 +9,9 @@ import org.springframework.boot.web.servlet.context.ServletWebServerApplicationC
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.assignment.spring.api.WeatherResponse;
+import com.assignment.spring.api.openweathermap.WeatherResponse;
+import com.assignment.spring.model.WeatherEntity;
+import com.assignment.spring.repository.WeatherRepository;
 
 class ApplicationIntegrationTest extends AbstractIntegrationTest {
 

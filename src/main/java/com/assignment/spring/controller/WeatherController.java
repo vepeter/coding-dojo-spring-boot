@@ -1,6 +1,10 @@
-package com.assignment.spring;
+package com.assignment.spring.controller;
 
-import com.assignment.spring.api.WeatherResponse;
+import com.assignment.spring.Constants;
+import com.assignment.spring.api.openweathermap.WeatherResponse;
+import com.assignment.spring.model.WeatherEntity;
+import com.assignment.spring.repository.WeatherRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
