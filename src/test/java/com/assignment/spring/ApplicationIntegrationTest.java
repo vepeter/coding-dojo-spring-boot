@@ -26,7 +26,7 @@ class ApplicationIntegrationTest extends AbstractIntegrationTest {
     private String cityDefinition = "Amsterdam,nl";
 
     @Test
-    void test() {
+    void applicationShouldLoadAndSaveExpectedTemperatureForTheCity() {
         Double expectedTemperature = loadExpectedTemperature();
         String applicationUrl = String.format("http://localhost:%s/weather?city=%s",
                 webServerApplicationContext.getWebServer().getPort(), cityDefinition);
