@@ -1,8 +1,10 @@
 
-## Tasks to complete
+## Tasks to complete - TODO list
 - fix the Docker image generation
 - optimize RestTemplate used to load data from OpenWeatherMap
+- change *HikariCP* `DataSource` configuration (based on expected load)
 - clean up *OpenWeatherMap* model classes (see the `com.assignment.spring.application.dataloader.openweathermap.model` package)
+- add monitoring implementation (e.g. with exposing metrics through *Spring Boot Actuator* using `micrometer-registry-prometheus`)
 - add javadocs
 - convert `OpenWeatherMapIntegrationTest` to use [WireMock](http://wiremock.org/) instead of connecting directly to the OpenWeatherMap API from the test
 - generate [OpenAPI](http://spec.openapis.org/oas/v3.0.3) documentation during the build
