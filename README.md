@@ -11,7 +11,7 @@
 - add Kubernetes manifests
 - migrate to Spring WebFlux and R2DBC
 - migrate to the GraalVM JVM (very often it gives better performance)
-- add native image generation using GraalVM
+- add native image generation using GraalVM (e.g. if the application should be deployed as a cloud function like AWS Lambda, Azure FUnction etc.)
 
 ## Notes
 I assumed that DB schema and REST interface could not be changed: it is not specified that those interfaces could be changed so potentially they can be used by other systems (despite it is a very bad practice for sharing DB).
