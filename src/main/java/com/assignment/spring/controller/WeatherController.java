@@ -1,11 +1,11 @@
 package com.assignment.spring.controller;
 
-import com.assignment.spring.Constants;
 import com.assignment.spring.api.openweathermap.WeatherResponse;
 import com.assignment.spring.model.WeatherEntity;
 import com.assignment.spring.repository.WeatherRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,12 +21,17 @@ public class WeatherController {
 
     @Autowired
     private WeatherRepository weatherRepository;
+    
+    @Value("${app.api.openweathermap.url}")
+    private String apiOpenweathermapUrl;
+    
+    @Value("${app.api.openweathermap.appid}")
+    private String apiOpenweathermapAppId;
 
     @RequestMapping("/weather")
     public WeatherEntity weather(HttpServletRequest request) {
         String city = request.getParameter("city");
-        String url = Constants.WEATHER_API_URL.replace("{city}", city).replace("{appid}", Constants.APP_ID);
-        ResponseEntity<WeatherResponse> response = restTemplate.getForEntity(url, WeatherResponse.class);
+        ResponseEntity<WeatherResponse> response = restTemplate.getForEntity(apiOpenweathermapUrl, WeatherResponse.class, city, apiOpenweathermapAppId);
         return mapper(response.getBody());
     }
 

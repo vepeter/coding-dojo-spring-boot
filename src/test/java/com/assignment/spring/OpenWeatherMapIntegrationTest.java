@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
 import org.springframework.http.HttpStatus;
@@ -13,13 +14,19 @@ import com.assignment.spring.api.openweathermap.WeatherResponse;
 import com.assignment.spring.model.WeatherEntity;
 import com.assignment.spring.repository.WeatherRepository;
 
-class ApplicationIntegrationTest extends AbstractIntegrationTest {
+class OpenWeatherMapIntegrationTest extends AbstractIntegrationTest {
 
     @Autowired
     private ServletWebServerApplicationContext webServerApplicationContext;
     
     @Autowired
     private WeatherRepository weatherRepository;
+    
+    @Value("${app.api.openweathermap.url}")
+    private String apiOpenweathermapUrl;
+    
+    @Value("${app.api.openweathermap.appid}")
+    private String apiOpenweathermapAppId;
 
     private TestRestTemplate testRestTemplate = new TestRestTemplate();
 
@@ -45,9 +52,8 @@ class ApplicationIntegrationTest extends AbstractIntegrationTest {
     }
 
     private Double loadExpectedTemperature() {
-        String apiUrl = String.format("http://api.openweathermap.org/data/2.5/weather?q=%s&APPID=%s",
-                cityDefinition, Constants.APP_ID);
-        ResponseEntity<WeatherResponse> apiResponse = testRestTemplate.getForEntity(apiUrl, WeatherResponse.class);
+        ResponseEntity<WeatherResponse> apiResponse = testRestTemplate.getForEntity(apiOpenweathermapUrl,
+                WeatherResponse.class, cityDefinition, apiOpenweathermapAppId);
         return apiResponse.getBody().getMain().getTemp();
     }
 }

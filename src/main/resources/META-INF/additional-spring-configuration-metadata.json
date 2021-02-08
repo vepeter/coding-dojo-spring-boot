@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "app.api.openweathermap.url",
+    "type": "java.lang.String",
+    "description": "OpenWeatherMap API url template"
+  },
+  {
+    "name": "app.api.openweathermap.appid",
+    "type": "java.lang.String",
+    "description": "OpenWeatherMap API Application ID"
+  }
+]}
