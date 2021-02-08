@@ -12,7 +12,7 @@
 - add native image generation using GraalVM
 
 ## Notes
-I assumed that DB schema and REST interface could not be changed: it is not specified that those interfaces couldn't be changed so potentially they can be used by other systems (despite it is a very bad practice).
+I assumed that DB schema and REST interface could not be changed: it is not specified that those interfaces could be changed so potentially they can be used by other systems (despite it is a very bad practice for sharing DB).
 
 The project was tested with Postgres 10.5 as the latest minor version of the version 10, Postgres 10 is the minimal major version required by the provided schema (see `DEFAULT AS IDENTITY`)
 
