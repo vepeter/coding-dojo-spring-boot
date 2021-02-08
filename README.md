@@ -1,3 +1,26 @@
+
+## Tasks to complete
+- fix the Docker image generation
+- optimize RestTemplate used to load data from OpenWeatherMap
+- clean up *OpenWeatherMap* model classes (see the `com.assignment.spring.application.dataloader.openweathermap.model` package)
+- add javadocs
+- convert `OpenWeatherMapIntegrationTest` to use [WireMock](http://wiremock.org/) instead of connecting directly to the OpenWeatherMap API from the test
+- generate [OpenAPI](http://spec.openapis.org/oas/v3.0.3) documentation during the build
+- add Kubernetes manifests
+- migrate to Spring WebFlux and R2DBC
+- migrate to the GraalVM JVM (very often it gives better performance)
+- add native image generation using GraalVM
+
+## Notes
+I assumed that DB schema and REST interface could not be changed: it is not specified that those interfaces couldn't be changed so potentially they can be used by other systems (despite it is a very bad practice).
+
+The project was tested with Postgres 10.5 as the latest minor version of the version 10, Postgres 10 is the minimal major version required by the provided schema (see `DEFAULT AS IDENTITY`)
+
+The project was migrated to the *2.3* version of *Spring Boot* and to a newer version of `org.postgresql:postgresql`.
+
+Added additional dependencies (`lombok`, `spring-cloud-starter-netflix-hystrix` etc) as well as various test libraries.
+
+
 Spring Boot Coding Dojo
 ---
 
