@@ -1,0 +1,47 @@
+{
+	"coord": {
+		"lon": 4.8897,
+		"lat": 52.374
+	},
+	"weather": [
+		{
+			"id": 600,
+			"main": "Snow",
+			"description": "light snow",
+			"icon": "13n"
+		}
+	],
+	"base": "stations",
+	"main": {
+		"temp": 268.3,
+		"feels_like": 257.5,
+		"temp_min": 267.59,
+		"temp_max": 268.71,
+		"pressure": 1002,
+		"humidity": 80
+	},
+	"visibility": 5000,
+	"wind": {
+		"speed": 11.32,
+		"deg": 70,
+		"gust": 16.98
+	},
+	"snow": {
+		"1h": 0.22
+	},
+	"clouds": {
+		"all": 75
+	},
+	"dt": 1612743176,
+	"sys": {
+		"type": 1,
+		"id": 1524,
+		"country": "NL",
+		"sunrise": 1612768179,
+		"sunset": 1612802382
+	},
+	"timezone": 3600,
+	"id": 2759794,
+	"name": "Amsterdam",
+	"cod": 200
+}

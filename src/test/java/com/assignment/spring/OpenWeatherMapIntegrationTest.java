@@ -10,9 +10,9 @@ import org.springframework.boot.web.servlet.context.ServletWebServerApplicationC
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.assignment.spring.api.openweathermap.WeatherResponse;
-import com.assignment.spring.model.WeatherEntity;
-import com.assignment.spring.repository.WeatherRepository;
+import com.assignment.spring.application.dataloader.openweathermap.model.WeatherResponse;
+import com.assignment.spring.application.model.Weather;
+import com.assignment.spring.application.repository.WeatherRepository;
 
 class OpenWeatherMapIntegrationTest extends AbstractIntegrationTest {
 
@@ -22,10 +22,10 @@ class OpenWeatherMapIntegrationTest extends AbstractIntegrationTest {
     @Autowired
     private WeatherRepository weatherRepository;
     
-    @Value("${app.api.openweathermap.url}")
+    @Value("${api.openweathermap.url}")
     private String apiOpenweathermapUrl;
     
-    @Value("${app.api.openweathermap.appid}")
+    @Value("${api.openweathermap.appid}")
     private String apiOpenweathermapAppId;
 
     private TestRestTemplate testRestTemplate = new TestRestTemplate();
@@ -38,7 +38,7 @@ class OpenWeatherMapIntegrationTest extends AbstractIntegrationTest {
         String applicationUrl = String.format("http://localhost:%s/weather?city=%s",
                 webServerApplicationContext.getWebServer().getPort(), cityDefinition);
         
-        ResponseEntity<WeatherEntity> response = testRestTemplate.getForEntity(applicationUrl, WeatherEntity.class);
+        ResponseEntity<Weather> response = testRestTemplate.getForEntity(applicationUrl, Weather.class);
         
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody())
